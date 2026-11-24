@@ -10,7 +10,7 @@ import {
   X,
 } from "lucide-react";
 
-const API_URL = "http://localhost:5000/api/inventory";
+import { API_URL } from "./api";
 
 function Inventory() {
   const [products, setProducts] = useState([]);
@@ -33,7 +33,7 @@ function Inventory() {
       setLoading(true);
       setError("");
 
-      const response = await fetch(API_URL);
+      const response = await fetch(`${API_URL}/inventory`);
       const data = await response.json();
 
       if (!response.ok || !data.success) {

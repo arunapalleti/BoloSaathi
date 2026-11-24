@@ -12,9 +12,9 @@ import {
   Save
 } from "lucide-react";
 
+import { API_URL } from "./api";
 import "./Customers.css";
 
-const API_URL = "http://localhost:5000/api/customers";
 
 function Customers() {
   const [customers, setCustomers] = useState([]);
@@ -33,7 +33,7 @@ function Customers() {
     try {
       setLoading(true);
 
-      const response = await fetch(API_URL);
+    const response = await fetch(`${API_URL}/customers`);
       const data = await response.json();
 
       if (!response.ok) {
